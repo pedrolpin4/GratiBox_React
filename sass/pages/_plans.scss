@@ -1,4 +1,4 @@
-.register{
+.plans{
     font-family: 'Roboto', sans-serif;
     background-color: $color-primary;
     width: 100%;
@@ -10,14 +10,6 @@
         font-weight: 500;
         margin: 75px 0px 43px 0px;
         font-size: 28px;
-        color: $color-white;
-    }
-    &__switcher {
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 21px;
-        text-align: center;
         color: $color-white;
     }
 }

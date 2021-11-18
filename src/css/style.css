@@ -150,7 +150,93 @@ table {
 .bold {
   font-weight: 700; }
 
+.register__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .register__form--input {
+    background: #FFFFFF;
+    padding: 17px;
+    height: 64px;
+    width: calc(100vw - 50px);
+    border: 1px solid #604848;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 22px; }
+    .register__form--input:invalid {
+      border: 2px solid #b62525; }
+  .register__form--button {
+    background: #8C97EA;
+    border-radius: 10px;
+    height: 56px;
+    width: calc(100vw - 140px);
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    color: #fff; }
+
+.home {
+  background-color: #6D7CE4;
+  width: 100%;
+  height: 100vh;
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .home__title {
+    font-weight: 500;
+    margin: 36px 0px 43px 0px;
+    font-size: 28px;
+    color: #fff; }
+  .home__description {
+    width: 300px;
+    line-height: 21px;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    color: #fff; }
+  .home__image {
+    width: 100vw;
+    height: calc(100vh - 300px); }
+  .home__ghostbg {
+    position: absolute;
+    top: calc(100vh - 150px);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #4D65A8; }
+  .home__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 202px;
+    height: 45px;
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: calc(100vh - 130px);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: #8C97EA;
+    border-radius: 10px;
+    z-index: 2; }
+  .home__switcher {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: calc(100vh - 68px);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 10px;
+    z-index: 2; }
+
 .register {
+  font-family: 'Roboto', sans-serif;
   background-color: #6D7CE4;
   width: 100%;
   height: 100vh;
@@ -159,34 +245,10 @@ table {
   flex-direction: column;
   align-items: center; }
   .register__title {
-    font-weight: 700;
+    font-weight: 500;
     margin: 75px 0px 43px 0px;
     font-size: 28px;
     color: #fff; }
-  .register__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .register__form--input {
-      background: #FFFFFF;
-      padding: 17px;
-      height: 64px;
-      width: calc(100vw - 50px);
-      border: 1px solid #604848;
-      border-radius: 10px;
-      font-weight: 500;
-      font-size: 22px; }
-      .register__form--input:invalid {
-        border: 2px solid #b62525; }
-    .register__form--button {
-      background: #8C97EA;
-      border-radius: 10px;
-      height: 56px;
-      width: calc(100vw - 140px);
-      font-weight: bold;
-      font-size: 36px;
-      text-align: center;
-      color: #fff; }
   .register__switcher {
     cursor: pointer;
     font-weight: bold;

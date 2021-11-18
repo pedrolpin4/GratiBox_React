@@ -3,14 +3,13 @@ import UserContext from "../context/UserContext"
 import { useNavigate } from "react-router";
 import { postSignIn, postSignUp } from "../service/registration";
 
-const RegisterPage = () => {
+const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
     const navigate = useNavigate();
     const { setUserData } = useContext(UserContext)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
-    const [isSigningIn, setIsSigningIn] = useState(true);
 
     const formsSignIn = {
         email,
@@ -31,7 +30,7 @@ const RegisterPage = () => {
         
         if(result.success){
             setUserData(result.data)
-            localStorage.setItem("gratiboxLogin", result.data);
+            localStorage.setItem("gratiboxLogin", JSON.stringify(result.data));
 
             setIsSigningIn(false)
             navigate("/signatures")

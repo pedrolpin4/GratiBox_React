@@ -5,4 +5,9 @@
 @import "base/typography";
 @import "base/utilities";
 
-@import "pages/register"
+@import "components/registerForm";
+@import "components/plan";
+
+@import "pages/home";
+@import "pages/register";
+@import "pages/plans"
