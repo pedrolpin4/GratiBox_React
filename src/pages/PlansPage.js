@@ -1,20 +1,17 @@
-import { useContext } from "react";
 import Plan from "../components/Plan";
-import UserContext from "../context/UserContext"
 
-const PlansPage = () => {
-    const { userData } = useContext(UserContext)
+const PlansPage = ({setDefaultPlan}) => {
 
     return (
         <div className = "plans">
             <h1 className = "plans__title">
-                Bom te ver por aqui, @ {userData.user.name}
+                Bom te ver por aqui, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}
             </h1>
-            <p className = "plans__info">
+            <p className = "plans__info mb-medium">
                 Você ainda não assinou um plano, que tal começar agora?
             </p>
-            <Plan content = "weekly"/>
-            <Plan content = "mounthly"/>
+            <Plan content = "weekly" setDefaultPlan = {setDefaultPlan}/>
+            <Plan content = "monthly" setDefaultPlan = {setDefaultPlan}/>
         </div>
     )
 }

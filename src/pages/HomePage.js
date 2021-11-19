@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router"
+import UserContext from "../context/UserContext";
 const HomePage = ({setIsSigningIn}) => {
     const navigate = useNavigate();
+    const{
+        userData
+    } = useContext(UserContext)
+
+    if(userData){
+        navigate("/signatures")
+    }
 
     return (
         <div className = "home">
