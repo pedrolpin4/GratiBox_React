@@ -7,7 +7,7 @@ import {
 import UserContext from './context/UserContext';
 import HomePage from './pages/HomePage';
 import PlansPage from './pages/PlansPage';
-import PlansSelection from './pages/PlansSelection';
+import PlansOptions from './pages/PlansOptions';
 import RegisterPage from './pages/RegisterPage'
   
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
                     <Route path = "/" exact element = {<HomePage setIsSigningIn = {setIsSigningIn}/>} />
                     <Route path = "/register" exact element = {<RegisterPage setIsSigningIn = {setIsSigningIn} isSigningIn = {isSigningIn}/>} />
                     <Route path = "/signatures" exact element = {<PlansPage setDefaultPlan = {setDefaultPlan}/>} />
-                    <Route path = "/plans-selection" exact element = {<PlansSelection defaultPlan = {defaultPlan}/>} />
+                    <Route path = "/plans-selection" exact element = {<PlansOptions defaultPlan = {defaultPlan}/>} />
                 </Routes>
             </Router>
         </UserContext.Provider>

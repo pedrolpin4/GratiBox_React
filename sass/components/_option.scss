@@ -1,0 +1,86 @@
+.option{
+    @include flex-spbetween;
+    padding: 12px;
+    background-color: $color-forms;
+    position: relative;
+    height: auto;
+    width: calc(100% - 32px);
+
+    &__title{
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+        color: $color-primary-dark; 
+    }
+
+    &__arrow{
+        cursor: pointer;
+        color: $color-primary-dark;
+        transition: all .6s;
+        perspective: 25px;
+        -moz-perspective: 25px;    
+        transform: rotateX(0);
+    }
+
+    &__arrow.active{
+        transform: rotateX(-180deg)
+    }
+
+    &__checkbox{
+        height: 0px;
+        width: calc(100% - 32px);
+        transition: all .3s;
+
+        p{
+            opacity: 0;
+            display: none;
+            transition: all .3s;
+        }
+    }
+
+    &__checkbox.active{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        background-color: $color-forms;
+        padding: 12px;
+        width: calc(100% - 32px);
+
+        p{
+            cursor: pointer;
+            opacity: 1;
+            font-weight: 500;
+            display: initial;
+            font-size: 18px;
+        }
+    }
+
+    &__checkbox--flex{
+        @include flex-spbetween;
+        height: auto;
+        opacity: 1;
+    }
+
+    &__white-square{
+        @include flex-center;
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+        background-color: $color-white;
+        margin: 10px 10px;
+        opacity: 0;
+    }
+
+    &__white-square.active{
+        opacity: 1;
+    }
+
+    &__check{
+        opacity: 0;
+    }
+
+    &__check.active{
+        opacity: 1;
+    }
+}
