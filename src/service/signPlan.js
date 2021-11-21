@@ -35,7 +35,6 @@ const getPlans = async (token) => {
 const postSignature = async (signature, token) => {
     let status;
     let serverError;
-    console.log(signature);
 
     const result = await API.post("plans-options", signature, BearerToken(token))
         .catch(err => {
@@ -49,10 +48,16 @@ const postSignature = async (signature, token) => {
                 message: "It looks like our server is not okay, we'll fix it ASAP!!"
             }     
         });
+    console.log(result);
 
     if(status === 401)return {
         success: false,
         message: `It looks like your token is not a valid or has expired`,
+    }
+
+    if(status === 409)return {
+        success: false,
+        message: `This zipCode is already registered`,
     }
 
     if(status === 400) return {
@@ -62,6 +67,7 @@ const postSignature = async (signature, token) => {
 
     if(result.status === 201) return {
         success: true,
+        data: result.data,
     }
 
     return serverError;

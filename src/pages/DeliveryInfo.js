@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import PlanContext from "../context/PlanContext";
 import UserContext from "../context/UserContext";
@@ -8,17 +9,31 @@ import { IoArrowDown } from "react-icons/io5";
 const DeliveryInfo = ({districts}) => {
     const navigate = useNavigate();
     const [isSelecting, setIsSelecting] = useState(false)
-    const { userData } = useContext(UserContext)
+    const { userData, setUserData } = useContext(UserContext)
     const { signature, setSignature } = useContext(PlanContext)
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [selectedDistrict, setSelectedDistrict] = useState({})
     const [city, setCity] = useState('');
+    
+    useEffect(() => {
+        if(!JSON.parse(localStorage.getItem('gratiboxLogin'))) {
+            navigate("/");
+            return;
+        }
 
-    if(!signature.day){
-        navigate("/plans-selection");
-    }
+        if(JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
+            navigate('/user-signature');
+            return;
+        }
+
+        if(!signature.day){
+            navigate("/plans-selection");
+        }
+            
+    }, [navigate])
+   
 
     const handleSignature = async () => {
         setSignature({
@@ -46,6 +61,8 @@ const DeliveryInfo = ({districts}) => {
         }
 
         if(response.success){
+            setUserData({token: userData.token, user: {...userData.user, signature_id: response.data.signatureId}})
+            localStorage.setItem('gratiboxLogin', JSON.stringify({token: userData.token, user: {...userData.user, signature_id: response.data.signatureId}}))
             navigate('/user-signature')
         }
     }
@@ -53,7 +70,7 @@ const DeliveryInfo = ({districts}) => {
     return (
         <div className = "plans-options">
             <div className = "plans-options__title">
-                Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}.
+                Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
                 "Agradecer é arte de atrair coisas boas"

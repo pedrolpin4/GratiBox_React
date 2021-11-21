@@ -1,15 +1,20 @@
-import { useContext } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router"
-import UserContext from "../context/UserContext";
 const HomePage = ({setIsSigningIn}) => {
     const navigate = useNavigate();
-    const{
-        userData
-    } = useContext(UserContext)
 
-    if(userData){
+    useEffect(() => {
+        if(!JSON.parse(localStorage.getItem('gratiboxLogin'))){
+            return;
+        }
+
+        if(JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
+            navigate('/user-signature');
+            return;
+        }
+
         navigate("/signatures")
-    }
+    })
 
     return (
         <div className = "home">

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../context/UserContext"
 import { useNavigate } from "react-router";
 import { postSignIn, postSignUp } from "../service/registration";
@@ -56,6 +56,13 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
 
         return;
     }
+
+    useEffect(() => {
+        if(JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
+            navigate('/user-signature');
+            return;
+        }
+    }, [navigate])
 
     return(
         <div className = "register">

@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-  } from 'react-router-dom'
+} from 'react-router-dom'
 import UserContext from './context/UserContext';
 import HomePage from './pages/HomePage';
 import PlansPage from './pages/PlansPage';

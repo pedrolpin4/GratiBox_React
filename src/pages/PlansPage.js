@@ -1,11 +1,25 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import Plan from "../components/Plan";
 
 const PlansPage = ({setDefaultPlan}) => {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if(!JSON.parse(localStorage.getItem('gratiboxLogin'))) {
+            navigate("/");
+            return;
+        }
+        if(JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
+            navigate('/user-signature');
+            return;
+        }    
+    }, [navigate])
 
     return (
         <div className = "plans">
             <h1 className = "plans__title">
-                Bom te ver por aqui, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}.
+                Bom te ver por aqui, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </h1>
             <p className = "plans__info mb-medium">
                 Você ainda não assinou um plano, que tal começar agora?

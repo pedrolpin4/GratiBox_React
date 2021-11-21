@@ -55,13 +55,25 @@ const PlansOptions = ({defaultPlan, setDistricts}) => {
     }
 
     useEffect(() => {
+        if(!JSON.parse(localStorage.getItem('gratiboxLogin'))) {
+            navigate("/");
+            return;
+        }
+
+        if(JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
+            navigate('/user-signature');
+            return;
+        }
+    }, [navigate])
+
+    useEffect(() => {
         listOptions();
     }, [])
 
     return(
         <div className = "plans-options">
             <div className = "plans-options__title">
-                Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}.
+                Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
                 "Agradecer é arte de atrair coisas boas"
