@@ -56,4 +56,37 @@
         font-size: 24px;
         color: $color-white;
     }
+
+    &__input{
+        border: none;
+        outline: none;
+        box-shadow: none;
+        background-color: $color-forms;
+        width: calc(100% - 60px);
+        height: 44px;
+        border-radius: 5px;
+        color: $color-primary-dark;
+        font-weight: 700;
+        font-size: 18px;
+        padding: 12px;
+        margin-bottom: 7px;
+
+        &::placeholder{
+            color: $color-primary-dark;
+            font-weight: 700;
+            font-size: 18px;    
+        }
+
+        &--small{
+            width: calc(100% - 120px);
+            margin-right: 20px;
+        }
+    }
+
+    &__uf--container{
+        display: flex;
+        width: calc(100% - 60px);
+        height: auto;
+        margin-bottom: 7px;
+    }
 }

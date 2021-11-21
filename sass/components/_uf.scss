@@ -1,0 +1,59 @@
+.uf{
+    @include column-justify-center;
+    cursor: pointer;
+    background-color: $color-forms;
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    color: $color-primary-dark;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all .3s;
+
+    &__placeholders{
+        padding: 12px 4px 12px 12px;
+        height: 44px;
+        width: 100%;
+        @include flex-spbetween;
+
+        svg{
+            transform: rotate(0);
+            transition: all .3s;
+        }
+
+        &.active{
+            svg{
+                transform: rotateX(-180deg);
+            }
+        }
+    }
+
+    &__options{
+        @include column-justify-center;
+        height: 0px;
+        width: 100%;
+        overflow-y: scroll;
+        transition: all .3s;
+
+        &.active{
+            height: 120px;
+        }
+    }
+
+    &__option{
+        height: 0px;
+        opacity: 0;
+        width: 100%;
+        background-color: transparent;
+        color: $color-primary-dark;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all .3s;
+
+        &.active{
+            height: 40px;
+            padding: 12px;
+            opacity: 1;
+        }
+    }
+}

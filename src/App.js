@@ -9,11 +9,15 @@ import HomePage from './pages/HomePage';
 import PlansPage from './pages/PlansPage';
 import PlansOptions from './pages/PlansOptions';
 import RegisterPage from './pages/RegisterPage'
+import DeliveryInfo from './pages/DeliveryInfo';
+import PlanContext from './context/PlanContext';
   
 const App = () => {
     const [userData, setUserData] = useState({});
+    const [signature, setSignature ] = useState({})
     const [isSigningIn, setIsSigningIn] = useState(true);
     const [defaultPlan, setDefaultPlan] = useState('');
+    const [ districts, setDistricts ] = useState([])
 
     useEffect(() => {
         if(localStorage.getItem("gratiboxLogin")){
@@ -25,12 +29,15 @@ const App = () => {
     return (
         <UserContext.Provider value = {{userData, setUserData}}>
             <Router>
-                <Routes>
-                    <Route path = "/" exact element = {<HomePage setIsSigningIn = {setIsSigningIn}/>} />
-                    <Route path = "/register" exact element = {<RegisterPage setIsSigningIn = {setIsSigningIn} isSigningIn = {isSigningIn}/>} />
-                    <Route path = "/signatures" exact element = {<PlansPage setDefaultPlan = {setDefaultPlan}/>} />
-                    <Route path = "/plans-selection" exact element = {<PlansOptions defaultPlan = {defaultPlan}/>} />
-                </Routes>
+                <PlanContext.Provider value = {{signature, setSignature}}>
+                    <Routes>
+                        <Route path = "/" exact element = {<HomePage setIsSigningIn = {setIsSigningIn}/>} />
+                        <Route path = "/register" exact element = {<RegisterPage setIsSigningIn = {setIsSigningIn} isSigningIn = {isSigningIn}/>} />
+                        <Route path = "/signatures" exact element = {<PlansPage setDefaultPlan = {setDefaultPlan}/>} />
+                        <Route path = "/plans-selection" exact element = {<PlansOptions defaultPlan = {defaultPlan} setDistricts = {setDistricts}/>} />
+                        <Route path = "/delivery-info" exact element = {<DeliveryInfo districts = {districts}/>} />
+                    </Routes>
+                </PlanContext.Provider>
             </Router>
         </UserContext.Provider>
     )

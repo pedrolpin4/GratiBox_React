@@ -1,52 +1,80 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router";
 import Option from "../components/Option"
+import PlanContext from "../context/PlanContext";
+import { getPlans } from "../service/signPlan";
 
-const PlansOptions = ({defaultPlan}) => {
+const PlansOptions = ({defaultPlan, setDistricts}) => {
+    const navigate = useNavigate();
+    const { setSignature } = useContext(PlanContext);
     const [plans, setPlans] = useState([]);
     const [deliveryDays, setDeliveryDays] = useState([]);
     const [products, setProducts] = useState([]);
     const [plan, setPlan] = useState(defaultPlan);
     const [deliveryDay, setDeliveryDay] = useState("");
     const [selectedProducts, setSelectedProducts] = useState([]);
+    const [message, setMessage] = useState('')
 
-    const choice = [
-        {
-          title: 'Plano',
-          option: ['Mensal', 'Semanal'],
-        },
-        {
-          title: 'Entrega',
-          option: ['Segunda', 'Quarta', 'Sexta', 'Dia 01', 'Dia 10', 'Dia 20'],
-        },
-        {
-          title: 'Quero Receber',
-          option: ['Chás', 'Incensos', 'Produtos orgânicos'],
-        },
-    ];
+
+    const listOptions = async () => {
+        const response = await getPlans(JSON.parse(localStorage.getItem("gratiboxLogin")).token)
+
+        if(response.data){
+            setPlans([{id: 1, name: 'Monthly'}, {id: 2, name: 'Weekly'}]);
+            setDeliveryDays([...response.data.days]);
+            setProducts([...response.data.products]);
+            setDistricts([...response.data.districts])
+        }
+
+        return response.message;
+    }
+
+    const handleOptions = () => {
+        if(!selectedProducts.length){
+            setMessage('You must select at least one product')
+            return;
+        }
+
+        if(!plan){
+            setMessage('You must select your plan')
+            return;
+        }
+
+        if(!deliveryDay){
+            setMessage('You must select your deliveryDay')
+            return;
+        }
+
+        setSignature({
+            day: deliveryDay,
+            products: selectedProducts,
+        })
+
+        navigate("/delivery-info")
+    }
 
     useEffect(() => {
-        setPlans(choice[0].option);
-        setDeliveryDays(choice[1].option);
-        setProducts(choice[2].option);
+        listOptions();
     }, [])
 
     return(
         <div className = "plans-options">
             <div className = "plans-options__title">
-                Bom te ver aqui, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}.
+                Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin")).user.name}.
             </div>
             <div className = "plans-options__info mb-small">
                 "Agradecer é arte de atrair coisas boas"
             </div>
             <div className = "plans-options__container mb-huge">
-                <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/> 
+                <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
+                <p>{message}</p> 
                 <Option setOption = {setPlan} options = {plans} option = {plan} content = "plans"/>
-                <Option setOption = {setDeliveryDay} options = {plan === "Semanal" ? deliveryDays.slice(0,3) : deliveryDays.slice(3,6)} 
+                <Option setOption = {setDeliveryDay} options = {plan === 2 ? deliveryDays.slice(0,3) : deliveryDays.slice(3,6)} 
                     option = {deliveryDay} content = "delivery"/>
                 <Option setOption = {setSelectedProducts} options = {products} option = {selectedProducts} content = "products"/>
-                <div className = "plans-options__btn">
-                    Próximo
+                <div className = "plans-options__btn" onClick = {handleOptions}>
+                    Next
                 </div>
             </div>
         </div>

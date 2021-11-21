@@ -296,6 +296,55 @@ table {
   .option__check.active {
     opacity: 1; }
 
+.uf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(224, 209, 237, 0.62);
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  color: #4D65A8;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all .3s; }
+  .uf__placeholders {
+    padding: 12px 4px 12px 12px;
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .uf__placeholders svg {
+      transform: rotate(0);
+      transition: all .3s; }
+    .uf__placeholders.active svg {
+      transform: rotateX(-180deg); }
+  .uf__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    transition: all .3s; }
+    .uf__options.active {
+      height: 120px; }
+  .uf__option {
+    height: 0px;
+    opacity: 0;
+    width: 100%;
+    background-color: transparent;
+    color: #4D65A8;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all .3s; }
+    .uf__option.active {
+      height: 40px;
+      padding: 12px;
+      opacity: 1; }
+
 .plans-options {
   position: relative;
   display: flex;
@@ -350,6 +399,31 @@ table {
     font-weight: 500;
     font-size: 24px;
     color: #fff; }
+  .plans-options__input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: rgba(224, 209, 237, 0.62);
+    width: calc(100% - 60px);
+    height: 44px;
+    border-radius: 5px;
+    color: #4D65A8;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 12px;
+    margin-bottom: 7px; }
+    .plans-options__input::placeholder {
+      color: #4D65A8;
+      font-weight: 700;
+      font-size: 18px; }
+    .plans-options__input--small {
+      width: calc(100% - 120px);
+      margin-right: 20px; }
+  .plans-options__uf--container {
+    display: flex;
+    width: calc(100% - 60px);
+    height: auto;
+    margin-bottom: 7px; }
 
 .home {
   background-color: #6D7CE4;

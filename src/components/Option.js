@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoArrowDown, IoCheckmark } from "react-icons/io5";
 
 const Option = ({content, setOption, options, option}) => {
     const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        content === "products" ?
-        setOption([...options]) :
-        setOption(options[0])
-    }, []);
 
     return (
         <>
@@ -19,7 +13,7 @@ const Option = ({content, setOption, options, option}) => {
                         "Delivery" : 
                         content === "plans" ? 
                         "Plans" : 
-                        "Products"
+                        "Wanna Receive"
                     }
                 </p>
                 <IoArrowDown onClick = {() => setIsVisible(!isVisible)} size = {20} 
@@ -27,15 +21,15 @@ const Option = ({content, setOption, options, option}) => {
             </div>
             <div className = {isVisible ? "option__checkbox active mb-tiny" : "option__checkbox"}>
                 {
-                    options.map((op, i) => (
+                    options.map((op) => (
                         <>
                             {
-                                <div className = "option__checkbox--flex" key = {op + i}>
+                                <div className = "option__checkbox--flex" key = {op.id}>
                                     <div className = {isVisible ? "option__white-square active" : "option__white-square"}
                                        onClick = {() =>{
                                             if(content === 'products'){
-                                                if(!option.includes(op)){
-                                                    setOption([...option, op])
+                                                if(!option.includes(op.id)){
+                                                    setOption([...option, op.id])
                                                     return;
                                                 }
     
@@ -43,30 +37,30 @@ const Option = ({content, setOption, options, option}) => {
                                                 return;
                                             }
     
-                                            setOption(op)
+                                            setOption(op.id)
                                         }
                                     }>
                                         <IoCheckmark size = {20} color = {"green"} 
                                             className = {
                                                 content === 'products' ?
-                                                option.includes(op) ? "option__check active" : "option__check" :
-                                                option === op ? "option__check active" : "option__check" 
+                                                option.includes(op.id) ? "option__check active" : "option__check" :
+                                                option === op.id ? "option__check active" : "option__check" 
                                             }
                                             />
                                     </div>
                                     <p onClick = {() =>{
                                         if(content === 'products'){
-                                            if(!option.includes(op)){
-                                                setOption([...option, op])
+                                            if(!option.includes(op.id)){
+                                                setOption([...option, op.id]);
                                                 return;
                                             }
 
-                                            setOption(option.filter(opt => opt !== op))
+                                            setOption(option.filter(opt => opt !== op.id))
                                             return;
                                         }
 
-                                        setOption(op)
-                                    }}>{op}</p>
+                                        setOption(op.id)
+                                    }}>{op.name || op.day}</p>
                                 </div> 
                             }
                         </>
