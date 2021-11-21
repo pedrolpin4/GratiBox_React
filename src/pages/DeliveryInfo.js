@@ -8,9 +8,9 @@ import { IoArrowDown } from "react-icons/io5";
 
 const DeliveryInfo = ({districts}) => {
     const navigate = useNavigate();
-    const [isSelecting, setIsSelecting] = useState(false)
-    const { userData, setUserData } = useContext(UserContext)
-    const { signature, setSignature } = useContext(PlanContext)
+    const [isSelecting, setIsSelecting] = useState(false);
+    const { userData, setUserData } = useContext(UserContext);
+    const { signature, setSignature } = useContext(PlanContext);
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
@@ -31,8 +31,7 @@ const DeliveryInfo = ({districts}) => {
         if(!signature.day){
             navigate("/plans-selection");
         }
-            
-    }, [navigate])
+    }, [navigate]);
    
 
     const handleSignature = async () => {

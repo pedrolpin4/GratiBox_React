@@ -11,6 +11,7 @@ import PlansOptions from './pages/PlansOptions';
 import RegisterPage from './pages/RegisterPage'
 import DeliveryInfo from './pages/DeliveryInfo';
 import PlanContext from './context/PlanContext';
+import UserSignature from './pages/UserSignature';
   
 const App = () => {
     const [userData, setUserData] = useState({});
@@ -36,6 +37,7 @@ const App = () => {
                         <Route path = "/signatures" exact element = {<PlansPage setDefaultPlan = {setDefaultPlan}/>} />
                         <Route path = "/plans-selection" exact element = {<PlansOptions defaultPlan = {defaultPlan} setDistricts = {setDistricts}/>} />
                         <Route path = "/delivery-info" exact element = {<DeliveryInfo districts = {districts}/>} />
+                        <Route path = "/user-signature" exact element = {<UserSignature />} />
                     </Routes>
                 </PlanContext.Provider>
             </Router>

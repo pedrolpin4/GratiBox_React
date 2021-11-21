@@ -1,0 +1,21 @@
+.user-info{
+    display: flex;
+    width: calc(100% - 38px);
+    font-size: 18px;
+    line-height: 21px;
+
+
+    &__type{
+        color: $color-primary-dark;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    &__value{
+        color: $color-red;
+
+        &--container{
+            @include column-justify-center;
+        }
+    }
+}
