@@ -33,8 +33,8 @@ Visando estimular um estilo de vida mais saudável você idealizou uma startup q
         - Monthly: You receive a box per mont.
 
     - Delivery Options:
-        - Month: 1st, 10th or 20th of each month. In case the weekday day of the day you chose is Saturday or Sunday, you'll receive your box in the next Monday. 
-        - Semanal: Monday, Wednesday or Friday of each week. Don't worry, we make delivers on holidays.
+        - Monthly: 1st, 10th or 20th of each month. In case the weekday day of the day you chose is Saturday or Sunday, you'll receive your box in the next Monday. 
+        - Weekly: Monday, Wednesday or Friday of each week. Don't worry, we make delivers on holidays.
 
  - What do I receive?
     - You can choose between this 3 options:
