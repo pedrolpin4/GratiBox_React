@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import Mindfullness from "../animations/svgs/Minfullness";
 import {calcNextMonthDeliveries, calcNextWeeksDeliveries} from "../factories/dateFactory";
 import getSignature from "../service/userSignature";
+import UserInfo from "../components/UserInfo"
 
 const UserSignature = () => {
     const navigate = useNavigate();
@@ -58,54 +59,10 @@ const UserSignature = () => {
             </div>
             <div className = "plans-options__container mb-big">
                 <Mindfullness size = {'280px'}/>
-                <div className = "user-info">
-                    <p className = "user-info__type">
-                        Plan: 
-                    </p>
-                </div>
-                <div className = "user-info__value--container">
-                    <p className = "user-info__value">
-                    {plan}
-                    </p>
-                </div>
-                <div className = "user-info">
-                    <p className = "user-info__type">
-                        Sign Date: 
-                    </p>
-                </div>
-                <div className = "user-info__value--container">
-                    <p className = "user-info__value">
-                    {signDate}
-                    </p>
-                </div>
-                <div className = "user-info">
-                    <p className = "user-info__type">
-                        Next Deliveries: 
-                    </p>
-                </div>
-                <div className = "user-info__value--container">
-                    {
-                        nextDeliveries.map((nd, i) => (
-                            <p className = "user-info__value" key = {nd + i}>
-                                {nd}
-                            </p>
-                        ))
-                    }
-                </div>
-                <div className = "user-info">
-                    <p className = "user-info__type">
-                        Products: 
-                    </p>
-                </div>
-                <div className = "user-info__value--container">
-                    <>
-                        {products.map(p => (
-                            <p className = "user-info__value" key = {p.id}>
-                                {p.name}
-                            </p>
-                        ))}
-                    </>
-                </div>
+                <UserInfo content = "plan" options = {[plan]}/>
+                <UserInfo content = "sign-date" options = {[signDate]} /> 
+                <UserInfo content = "deliveries" options = {nextDeliveries} />
+                <UserInfo content = "products" options = {products}/>
                 <div className = "plans-options__btn big" onClick = {() => {
                     navigate("/coming-soon")
                 }}>
