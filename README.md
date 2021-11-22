@@ -34,14 +34,13 @@ Aiming to encourage a healthier lifestyle, this app is a startup that delivers a
     - State
 
 ## How to run?
-
--Frontend
+- Frontend
     - clone this repository;
     - Go to this repository path on your device's terminal;
     - type "npm i" => the necessary packages will be installed on your device;
     - type "npm start" => the project will run in your localhost:3000;
     
--Backend
+- Backend
     - clone my repository GratiBox_BackEnd;
     - Go to this repository path on your device's terminal;
     - type "npm i" => the necessary packages will be installed on your device;
