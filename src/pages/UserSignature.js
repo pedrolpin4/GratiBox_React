@@ -106,7 +106,9 @@ const UserSignature = () => {
                         ))}
                     </>
                 </div>
-                <div className = "plans-options__btn big">
+                <div className = "plans-options__btn big" onClick = {() => {
+                    navigate("/coming-soon")
+                }}>
                     Rate Deliveries                    
                 </div>
             </div>
