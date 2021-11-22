@@ -2,14 +2,15 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
+import {calcNextMonthDeliveries, calcNextWeeksDeliveries} from "../factories/dateFactory";
 import getSignature from "../service/userSignature";
 
 const UserSignature = () => {
     const navigate = useNavigate();
-    const [day, setDay] = useState('');
-    const [plan, setPlan] = useState('')
+    const [nextDeliveries, setNextDeliveries] = useState([])
+    const [plan, setPlan] = useState('');
     const [products, setProducts] = useState([]);
-    const [signDate, setSignDate] = useState('')
+    const [signDate, setSignDate] = useState('');
 
     const listSignature = async () => {
         const response = await getSignature(JSON.parse(localStorage.getItem('gratiboxLogin')).token);
@@ -17,15 +18,18 @@ const UserSignature = () => {
         if(response.data){
             const date = response.data.signDate
             setSignDate(dayjs(date).format('YYYY-MM-DD'));
-            setDay(response.data.day);
             setProducts([...response.data.products]);
 
-            if(day === 'Dia 01' || day === 'Dia 10' || day === 'Dia 20'){
+            if(response.data.day === '1st' || response.data.day === '10th' || response.data.day === '20th'){
                 setPlan('Monthly');
+                const date = calcNextMonthDeliveries(response.data.day);
+                setNextDeliveries(date)
                 return;
             }
 
             setPlan('Weekly');
+            const weekDate = calcNextWeeksDeliveries(response.data.day)
+            setNextDeliveries(weekDate)
         }
     }
 
@@ -79,9 +83,13 @@ const UserSignature = () => {
                     </p>
                 </div>
                 <div className = "user-info__value--container">
-                    <p className = "user-info__value">
-                        {day}
-                    </p>
+                    {
+                        nextDeliveries.map((nd, i) => (
+                            <p className = "user-info__value" key = {nd + i}>
+                                {nd}
+                            </p>
+                        ))
+                    }
                 </div>
                 <div className = "user-info">
                     <p className = "user-info__type">

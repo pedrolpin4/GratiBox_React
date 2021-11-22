@@ -360,7 +360,7 @@ table {
       display: flex;
       flex-direction: column;
       width: calc(100% - 60px);
-      margin-bottom: 7px; }
+      margin: 7px 0px; }
 
 .plans-options {
   position: relative;
@@ -417,7 +417,8 @@ table {
     font-size: 24px;
     color: #fff; }
     .plans-options__btn.big {
-      width: 198px; }
+      width: 198px;
+      height: 45px; }
   .plans-options__input {
     border: none;
     outline: none;
