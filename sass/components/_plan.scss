@@ -15,6 +15,11 @@
         transform: translateY(-50px);
     }
 
+    &__animation{
+        margin-top: 50px;
+        width: 200px;
+    }
+
     &__description{
         @include column-justify-center;
         width: 100%;

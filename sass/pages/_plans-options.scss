@@ -4,8 +4,8 @@
     font-family: 'Roboto', sans-serif;
     background-color: $color-primary;
     width: 100%;
-    height: 100vh;
-    padding: 20px;
+    height: 100%;
+    padding: 0px 20px 20px 20px;
 
     &__title{
         width: 100%;
@@ -14,6 +14,10 @@
         margin: 85px 0px 22px 0px;
         font-size: 26px;
         color: $color-white;
+
+        &.signature{
+            margin-top: 40px;
+        }
     }
 
     &__info{

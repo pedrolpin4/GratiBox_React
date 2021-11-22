@@ -2,6 +2,7 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
+import Mindfullness from "../animations/svgs/Minfullness";
 import {calcNextMonthDeliveries, calcNextWeeksDeliveries} from "../factories/dateFactory";
 import getSignature from "../service/userSignature";
 
@@ -49,14 +50,14 @@ const UserSignature = () => {
     
     return (
         <div className = "plans-options">
-            <div className = "plans-options__title">
+            <div className = "plans-options__title signature">
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
                 "Greeting is the art of attracting good vibrations"
             </div>
-            <div className = "plans-options__container mb-huge">
-                <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
+            <div className = "plans-options__container mb-big">
+                <Mindfullness size = {'280px'}/>
                 <div className = "user-info">
                     <p className = "user-info__type">
                         Plan: 

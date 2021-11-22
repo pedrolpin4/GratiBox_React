@@ -33,7 +33,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
             localStorage.setItem("gratiboxLogin", JSON.stringify(result.data));
 
             setIsSigningIn(false)
-            navigate("/signatures")
+            navigate("/hello")
             return;
         }
         setMessage(result.message)
