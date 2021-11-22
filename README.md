@@ -5,83 +5,59 @@
 </p>
 
 
-## Problema
-
+## About
 Visando estimular um estilo de vida mais saudável você idealizou uma startup que entrega box com produtos saudáveis e de #gratidão. Os clientes poderão escolher entre dois planos de assinatura recorrente, semanal ou mensal. Cada box contém produtos sortidos como chás, produtos orgânicos, incensos. Os clientes não podem escolher os produtos e não sabem o que será enviado em cada box. 😇
 
+## FAQ
 
-## Requisitos
-- O front-end deverá ser uma Single Page Application em React, que se comunique com o back-end através de API;
-- O back-end da aplicação deverá ser feito em Node.js;
-- O banco de dados deverá ser Postgres;
+- What are your signature options?
+    - Plan types:
+        - Weekly: You receive a box per week.
+        - Monthly: You receive a box per mont.
 
-- **Login**
+    - Delivery Options:
+        - Monthly: 1st, 10th or 20th of each month. In case the weekday day of the day you chose is Saturday or Sunday, you'll receive your box in the next Monday. 
+        - Weekly: Monday, Wednesday or Friday of each week. Don't worry, we make delivers on holidays.
+
+ - What do I receive?
+    - You can choose between this 3 options:
+        - Teas
+        - Incenses
+        - Organic Products
+
+- What is required?
+    - Full Name
+    - Delivery Address
+    - Zip Code
+    - City
+    - State
+
+## What comes next?
+
+- On the next versions you'll experience a whole new web design you've never seen or heard
+- The rate Deliveries feature will blow your mind with the best feedback plataform on lifestyle signatures
+
+## Tecnologies I Used
+
+#### **Front-end**
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) 
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![SASS Badge](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+
+#### **Back-end**
+
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white)
+![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=flat-square&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white)
+
+## Get in touch!
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/pina-pedrolucas)
+[![Gmail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pedrolucaspina22@gmail.com)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/pedrolpin4/)
+[![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pedrolpin4)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?phone=5521967431453&text=Olá,%20meu%20amigo!)
     
-    Após o login, existem dois possíveis caminhos:
-    
-    Se o cliente tiver assinado um plano ele deverá visualizar informações do seu plano:
-    
-    - Tipo de plano
-    - Data da assinatura
-    - Dia de entrega recorrente
-    - Visualizar as datas de entrega para mês atual
-        - Plano Mensal: Se o dia escolhido cair em um final de semana mostrar o próximo dia útil
-        - Plano Semanal: Mostrar os dias (dd/mm/aaaa) que serão feitas na entrega. As entregas são feitas nos feriados.
-    
-    Se o cliente ainda não tiver assinado um plano ele poderá selecionar um dos planos e finalizar, escolher a data de entrega e finalizar a compra.
-    
-    - Para a data de entrega o cliente poderá escolher uma entre as opções:
-        - Mensal: Dia 01, Dia 10, Dia 20.
-        - Semana: Segunda, Quarta, Sexta.
-
-- **Assinar**
-    - A assinatura é dividia em duas páginas, send a primeiro dados do plano e a segunda dados de entrega.
-        - Dados do Plano
-            - Tipo do Plano:
-                - Semanal
-                - Mensal
-            - Entrega:
-                - Mensal: Dia 01, Dia 10, Dia 20.
-                - Semanal: Segunda, Quarta, Sexta.
-            - Quero Receber: O cliente poderá escolher entre uma a três opções
-                - Chás
-                - Incensos
-                - Produtos orgânicos
-        - Dados de Entrega
-            - Nome completo
-            - Endereço de entrega
-            - CEP
-            - Cidade
-            - Estado
-
-## Layout 
-
-https://www.figma.com/file/wHTsMeg2oVdW96ptraU2Gb/GratiBox?node-id=0%3A1
-
-## Observações
-
-- O projeto deverá estar em um repositório público, com um README detalhado sobre o projeto e como executa-lo;
-- Use feature branch
-- Use eslint/prettier
-- Utilize variáveis de ambiente
-- A API deve possuir testes de integração em todas as rotas
-- Faça ao menos um teste E2E com Cypress
-- Forneça um dump do banco de dados
-- Os recurcos (imagens e cores estão nesse repositório)
-
-## Bônus
-
-
-**Bônus 1: Avaliar**
-    - O cliente poderá visualizar uma lista de entregas realizadas e avalia-las de duas formas:
-</br></br>
-    - Positivo 🙏 </br></br>
-    - Negativo 👎: </br>  
-    - Para avaliações negativas deverá abrir uma nova página onde o cliente poderá marcar múltiplos item e adicionar um comentário.
-    - Para esse bônus você pode simular no banco dados de entregas ocorridas, foque apenas na avalição.
-
-
-**Bônus 2: API Correios**
-- Para esse bônus você poderá usar uma lib que retorna os dados do endereço com base no CEP, sendo assim, na sua aplicação quando o cliente digitar o CEP deve preencher os dados de endereço, cidade e estado automagicamente.
-    
-    [https://github.com/BrasilAPI/cep-promise](https://github.com/BrasilAPI/cep-promise)

@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #6D7CE4;
+  backface-visibility: hidden;
   width: 100vw;
   height: 100%;
   overflow-x: hidden; }
@@ -139,6 +140,22 @@ table {
 * {
   box-sizing: border-box; }
 
+@keyframes moveInTop {
+  0% {
+    transform: translateY(-500px); }
+  80% {
+    transform: translateY(100px); }
+  100% {
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(300px); }
+  80% {
+    transform: translateX(-100px); }
+  100% {
+    transform: translate(0); } }
+
 .mb-huge {
   margin-bottom: 144px; }
 
@@ -183,12 +200,18 @@ table {
   .register__form--button {
     background: #8C97EA;
     border-radius: 10px;
-    height: 56px;
-    width: calc(100vw - 140px);
+    height: 40px;
+    width: 180px;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 28px;
     text-align: center;
-    color: #fff; }
+    color: #fff;
+    transition: all .4s; }
+    .register__form--button:hover {
+      transform: translateY(-5px) translateX();
+      box-shadow: 0px 2px 2px rgba(77, 101, 168, 0.3);
+      background-color: #fff;
+      color: #4D65A8; }
 
 .plan {
   display: flex;
@@ -234,7 +257,13 @@ table {
     border-radius: 10px;
     font-weight: 500;
     font-size: 24px;
-    color: #fff; }
+    color: #fff;
+    transition: all .3s; }
+    .plan__btn:hover {
+      transform: translateY(-5px) translateX();
+      box-shadow: 0px 2px 2px rgba(77, 101, 168, 0.3);
+      background-color: #fff;
+      color: #4D65A8; }
 
 .option {
   display: flex;
@@ -311,24 +340,31 @@ table {
   cursor: pointer;
   background-color: rgba(224, 209, 237, 0.62);
   width: 100px;
-  height: auto;
+  height: 44px;
   border-radius: 5px;
   color: #4D65A8;
   font-weight: 700;
   font-size: 18px;
   transition: all .3s; }
+  .uf.active {
+    height: 164px; }
   .uf__placeholders {
     padding: 12px 4px 12px 12px;
     height: 44px;
     width: 100%;
+    color: rgba(77, 101, 168, 0.8);
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between; }
     .uf__placeholders svg {
       transform: rotate(0);
       transition: all .3s; }
-    .uf__placeholders.active svg {
-      transform: rotateX(-180deg); }
+    .uf__placeholders.active {
+      color: #4D65A8;
+      font-weight: 700; }
+      .uf__placeholders.active svg {
+        transform: rotateX(-180deg); }
   .uf__options {
     display: flex;
     flex-direction: column;
@@ -345,7 +381,7 @@ table {
     width: 100%;
     background-color: transparent;
     color: #4D65A8;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
     transition: all .3s; }
     .uf__option.active {
@@ -423,10 +459,16 @@ table {
     border-radius: 10px;
     font-weight: 500;
     font-size: 24px;
-    color: #fff; }
+    color: #fff;
+    transition: all .3s; }
     .plans-options__btn.big {
       width: 198px;
       height: 45px; }
+    .plans-options__btn:hover {
+      transform: translateY(-5px) translateX(-50%);
+      box-shadow: 0px 2px 2px rgba(77, 101, 168, 0.3);
+      background-color: #fff;
+      color: #4D65A8; }
   .plans-options__input {
     border: none;
     outline: none;
@@ -441,8 +483,8 @@ table {
     padding: 12px;
     margin-bottom: 7px; }
     .plans-options__input::placeholder {
-      color: #4D65A8;
-      font-weight: 700;
+      color: rgba(77, 101, 168, 0.8);
+      font-weight: 500;
       font-size: 18px; }
     .plans-options__input--small {
       width: calc(100% - 120px);
@@ -458,6 +500,7 @@ table {
   width: 100%;
   height: 100vh;
   padding: 17px;
+  animation: moveInTop .7s;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -498,8 +541,14 @@ table {
     font-weight: 700;
     color: #fff;
     background: #8C97EA;
+    transition: all .3s;
     border-radius: 10px;
     z-index: 2; }
+    .home__btn:hover {
+      transform: translateY(-5px) translateX();
+      box-shadow: 0px 2px 2px rgba(77, 101, 168, 0.3);
+      background-color: #fff;
+      color: #4D65A8; }
   .home__switcher {
     cursor: pointer;
     position: absolute;
@@ -511,7 +560,10 @@ table {
     font-weight: 700;
     color: #fff;
     border-radius: 10px;
+    transition: all .3s;
     z-index: 2; }
+    .home__switcher:hover {
+      text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); }
 
 .register {
   font-family: 'Roboto', sans-serif;
@@ -534,6 +586,8 @@ table {
     line-height: 21px;
     text-align: center;
     color: #fff; }
+    .register__switcher:hover {
+      text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); }
 
 .plans {
   font-family: 'Roboto', sans-serif;

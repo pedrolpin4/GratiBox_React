@@ -19,5 +19,9 @@
         line-height: 21px;
         text-align: center;
         color: $color-white;
+
+        &:hover{
+            text-shadow: 2px 2px 2px rgba($color-white, 0.5);
+        }
     }
 }

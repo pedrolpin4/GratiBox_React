@@ -19,11 +19,14 @@
     &--button{
         background: #8C97EA;
         border-radius: 10px;
-        height: 56px;
-        width: calc(100vw - 140px);
+        height: 40px;
+        width: 180px;
         font-weight: bold;
-        font-size: 36px;
+        font-size: 28px;
         text-align: center;
         color: $color-white;
+        transition: all .4s;
+
+        @include button-animation
     }
 }
