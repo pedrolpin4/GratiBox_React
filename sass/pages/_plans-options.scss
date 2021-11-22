@@ -55,11 +55,14 @@
         font-weight: 500;
         font-size: 24px;
         color: $color-white;
+        transition: all .3s;
 
         &.big{
             width: 198px;
             height: 45px;
         }
+
+        @include button-absolute-animation;
     }
 
     &__input{
@@ -77,8 +80,8 @@
         margin-bottom: 7px;
 
         &::placeholder{
-            color: $color-primary-dark;
-            font-weight: 700;
+            color: rgba($color-primary-dark, 0.8);
+            font-weight: 500;
             font-size: 18px;    
         }
 

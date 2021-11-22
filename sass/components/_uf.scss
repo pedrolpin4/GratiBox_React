@@ -3,17 +3,23 @@
     cursor: pointer;
     background-color: $color-forms;
     width: 100px;
-    height: auto;
+    height: 44px;
     border-radius: 5px;
     color: $color-primary-dark;
     font-weight: 700;
     font-size: 18px;
     transition: all .3s;
 
+    &.active{
+        height: 164px;
+    }
+
     &__placeholders{
         padding: 12px 4px 12px 12px;
         height: 44px;
         width: 100%;
+        color: rgba($color-primary-dark, 0.8);
+        font-weight: 500;
         @include flex-spbetween;
 
         svg{
@@ -22,6 +28,8 @@
         }
 
         &.active{
+            color: $color-primary-dark;
+            font-weight: 700;
             svg{
                 transform: rotateX(-180deg);
             }
@@ -46,7 +54,7 @@
         width: 100%;
         background-color: transparent;
         color: $color-primary-dark;
-        font-weight: 700;
+        font-weight: 500;
         font-size: 16px;
         transition: all .3s;
 
