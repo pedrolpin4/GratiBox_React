@@ -442,6 +442,7 @@ table {
     border-radius: 10px; }
   .plans-options__image {
     width: 100%;
+    max-width: 300px;
     height: 172px;
     border-radius: 10px; }
   .plans-options__btn {
@@ -610,6 +611,6 @@ table {
     font-weight: 300;
     font-size: 18px;
     line-height: 21px;
-    width: 330px;
+    width: 100%;
     color: #fff;
     text-align: start; }
