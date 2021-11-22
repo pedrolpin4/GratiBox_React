@@ -38,27 +38,27 @@ Visando estimular um estilo de vida mais saudável você idealizou uma startup q
 
 ## FAQ
 
-    - What are your signature options?
-        - Plan types:
-            - Weekly: You receive a box per week.
-            - Monthly: You receive a box per mont.
-            
-        - Delivery Options:
-            - Month: 1st, 10th or 20th of each month. In case the weekday day of the day you chose is Saturday or Sunday, you'll receive your box in the next Monday. 
-            - Semanal: Monday, Wednesday or Friday of each week. Don't worry, we make delivers on holidays.
-            
-     - What do I receive?
-        - You can choose between this 3 options:
-            - Teas
-            - Incenses
-            - Organic Products
+- What are your signature options?
+    - Plan types:
+        - Weekly: You receive a box per week.
+        - Monthly: You receive a box per mont.
 
-    - What is required?
-        - Full Name
-        - Delivery Address
-        - Zip Code
-        - City
-        - State
+    - Delivery Options:
+        - Month: 1st, 10th or 20th of each month. In case the weekday day of the day you chose is Saturday or Sunday, you'll receive your box in the next Monday. 
+        - Semanal: Monday, Wednesday or Friday of each week. Don't worry, we make delivers on holidays.
+
+ - What do I receive?
+    - You can choose between this 3 options:
+        - Teas
+        - Incenses
+        - Organic Products
+
+- What is required?
+    - Full Name
+    - Delivery Address
+    - Zip Code
+    - City
+    - State
 
 ## Get in touch!
 [<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/pina-pedrolucas)
