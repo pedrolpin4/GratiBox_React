@@ -1,9 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import dayjs from "dayjs";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
+import getSignature from "../service/userSignature";
 
 const UserSignature = () => {
     const navigate = useNavigate();
+    const [day, setDay] = useState('');
+    const [plan, setPlan] = useState('')
+    const [products, setProducts] = useState([]);
+    const [signDate, setSignDate] = useState('')
+
+    const listSignature = async () => {
+        const response = await getSignature(JSON.parse(localStorage.getItem('gratiboxLogin')).token);
+
+        if(response.data){
+            const date = response.data.signDate
+            setSignDate(dayjs(date).format('YYYY-MM-DD'));
+            setDay(response.data.day);
+            setProducts([...response.data.products]);
+
+            if(day === 'Dia 01' || day === 'Dia 10' || day === 'Dia 20'){
+                setPlan('Monthly');
+                return;
+            }
+
+            setPlan('Weekly');
+        }
+    }
 
     useEffect(() => {
         if(!JSON.parse(localStorage.getItem('gratiboxLogin'))) {
@@ -14,7 +38,9 @@ const UserSignature = () => {
         if(!JSON.parse(localStorage.getItem('gratiboxLogin'))?.user["signature_id"]){
             navigate('/signatures');
             return;
-        } 
+        }
+        
+        listSignature();
     }, [navigate])
     
     return (
@@ -31,16 +57,20 @@ const UserSignature = () => {
                     <p className = "user-info__type">
                         Plan: 
                     </p>
+                </div>
+                <div className = "user-info__value--container">
                     <p className = "user-info__value">
-                        oii
+                    {plan}
                     </p>
                 </div>
                 <div className = "user-info">
                     <p className = "user-info__type">
                         Sign Date: 
                     </p>
+                </div>
+                <div className = "user-info__value--container">
                     <p className = "user-info__value">
-                        oii
+                    {signDate}
                     </p>
                 </div>
                 <div className = "user-info">
@@ -50,7 +80,7 @@ const UserSignature = () => {
                 </div>
                 <div className = "user-info__value--container">
                     <p className = "user-info__value">
-                        {dayjs().format('MM-DD-YYYY')}
+                        {day}
                     </p>
                 </div>
                 <div className = "user-info">
@@ -59,11 +89,15 @@ const UserSignature = () => {
                     </p>
                 </div>
                 <div className = "user-info__value--container">
-                    <p className = "user-info__value">
-                        {dayjs().format('MM-DD-YYYY')}
-                    </p>
+                    <>
+                        {products.map(p => (
+                            <p className = "user-info__value" key = {p.id}>
+                                {p.name}
+                            </p>
+                        ))}
+                    </>
                 </div>
-                <div className = "plans-options__btn big" onClick = {() => console.log("oi")}>
+                <div className = "plans-options__btn big">
                     Rate Deliveries                    
                 </div>
             </div>
