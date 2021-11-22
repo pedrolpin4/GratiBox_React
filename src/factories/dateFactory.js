@@ -74,7 +74,7 @@ const calcUniqueWeekDate = (plus, today) => {
     const week2 = dayjs(today + plus + oneWeek).format('YYYY-MM-DD');
     const week3 = dayjs(today + plus + oneWeek * 2).format('YYYY-MM-DD');
 
-    return [week1, week2, week3]
+    return [week1, week2, week3];
 }
 
 const calcNextWeeksDeliveries = (day) => {
@@ -91,7 +91,7 @@ const calcNextWeeksDeliveries = (day) => {
         return calcUniqueWeekDate(plus, today)
     }
 
-    if(day === 'Monday'){
+    if(day === 'Friday'){
         const plus = (7 - (verifiedDay - 5)) * 86400000;
         return calcUniqueWeekDate(plus, today)
     }
