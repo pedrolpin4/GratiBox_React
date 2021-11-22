@@ -42,6 +42,7 @@ Visando estimular um estilo de vida mais saudável você idealizou uma startup q
     [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/pedrolpin4/)
     [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pedrolpin4)
     [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?phone=5521967431453&text=Olá,%20meu%20amigo!)
+    
 ## FAQ
 
     - What are your signature options?
