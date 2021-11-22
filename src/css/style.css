@@ -545,11 +545,13 @@ table {
   flex-direction: column;
   align-items: center; }
   .plans__title {
+    align-self: start;
     font-weight: 700;
     margin: 85px 0px 22px 8px;
     font-size: 26px;
     color: #fff; }
   .plans__info {
+    align-self: start;
     margin-left: 8px;
     font-weight: 300;
     font-size: 18px;
