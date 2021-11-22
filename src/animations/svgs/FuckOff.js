@@ -10,11 +10,12 @@ const fuckOffOptions = {
     }
 };
 
-const FuckOff = ({size}) => (
+const FuckOff = () => (
     <div className = "fuckOff">
+        <h1 className = "fuckOff__label"> Às vezes é bom largar um</h1>
         <Lottie
             options={fuckOffOptions}
-            width={size}
+            width={"auto"}
             height={"auto"}
             isStopped={false}
             isPaused={false}

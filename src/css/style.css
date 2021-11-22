@@ -415,6 +415,9 @@ table {
   align-items: center;
   height: 100vh;
   background-color: #fff; }
+  .fuckOff h1 {
+    font-size: 30px;
+    margin-top: 50px; }
 
 .plans-options {
   position: relative;
