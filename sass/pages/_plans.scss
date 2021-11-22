@@ -7,6 +7,7 @@
     @include column-justify-center;
 
     &__title{
+        align-self: start;
         font-weight: 700;
         margin: 85px 0px 22px 8px;
         font-size: 26px;
@@ -14,6 +15,7 @@
     }
 
     &__info{
+        align-self: start;
         margin-left: 8px;
         font-weight: 300;
         font-size: 18px;

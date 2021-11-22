@@ -48,7 +48,6 @@ const postSignature = async (signature, token) => {
                 message: "It looks like our server is not okay, we'll fix it ASAP!!"
             }     
         });
-    console.log(result);
 
     if(status === 401)return {
         success: false,

@@ -16,6 +16,7 @@ const DeliveryInfo = ({districts}) => {
     const [zipCode, setZipCode] = useState('');
     const [selectedDistrict, setSelectedDistrict] = useState({})
     const [city, setCity] = useState('');
+    const [message, setMessage] = useState('');
     
     useEffect(() => {
         if(!JSON.parse(localStorage.getItem('gratiboxLogin'))) {
@@ -56,7 +57,12 @@ const DeliveryInfo = ({districts}) => {
         }, userData.token);
 
         if(!response.success){
-            console.log(response.message);
+           setMessage(response.message
+            .replace('"streetNumber"', "Delivery Address")
+            .replace('"zipCode"', "Zip Code")
+            .replace('"city"', 'City')
+            .replace('"fullName"', 'Full Name')
+            );
         }
 
         if(response.success){
@@ -72,19 +78,20 @@ const DeliveryInfo = ({districts}) => {
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
-                "Agradecer é arte de atrair coisas boas"
+                "Greeting is the art of attracting good stuff"
             </div>
             <div className = "plans-options__container mb-huge">
                 <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
+                <p  className = "error-message mb-small">{message}</p>
                 <input className = "plans-options__input" placeholder = "Full Name" value = {fullName}
-                    onChange = {(e) => setFullName(e.target.value)}/>
+                    onChange = {(e) => setFullName(e.target.value)} pattern = ".{2, }"/>
                 <input className = "plans-options__input" placeholder = "Delivery Address" value = {deliveryAddress}
-                    onChange = {(e) => setDeliveryAddress(e.target.value)}/>
+                    onChange = {(e) => setDeliveryAddress(e.target.value)} pattern = ".{4, }"/>
                 <input className = "plans-options__input" placeholder = "Zip Code"  value = {zipCode}
-                    onChange = {(e) => setZipCode(e.target.value)} />
+                    onChange = {(e) => setZipCode(e.target.value)} pattern = ".{8}"/>
                 <div className = "plans-options__uf--container">
                     <input className = " plans-options__input plans-options__input--small" placeholder = "City"  value = {city}
-                        onChange = {(e) => setCity(e.target.value)}/>
+                        onChange = {(e) => setCity(e.target.value)} pattern = ".{2, }"/>
                     <div className = {isSelecting ? "uf active" : "uf"}>
                         <div className = {isSelecting ? "uf__placeholders active" : "uf__placeholders"}
                             onClick = {() => setIsSelecting(!isSelecting)}>

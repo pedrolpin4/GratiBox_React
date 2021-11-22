@@ -10,12 +10,12 @@ const Plan = ({content, setDefaultPlan}) => {
                 {
                     content === "weekly" ? 
                     <p className = "plan__description">
-                        "Você recebe um box por semana. Ideal para quem quer exercer a gratidão todos os dias."
+                        "You'll receive a box per week. Ideal for those who want to practice gratitude everyday."
                     </p>
                     :
                     <p className = "plan__description">
-                        Você recebe um box por mês <br /> <br />
-                        Ideal para quem está começando agora
+                        You receive a box per month <br /> <br />
+                        Ideal for those who are begginers at gratitude
                     </p>
                 }
             <div className = "plan__btn" onClick = {() => {
@@ -28,7 +28,7 @@ const Plan = ({content, setDefaultPlan}) => {
                 setDefaultPlan("monthly")
                 navigate("/plans-selection")
             }}>
-                Assinar
+                Sign
             </div>
         </div>
     )

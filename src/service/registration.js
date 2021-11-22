@@ -6,7 +6,7 @@ const postSignUp = async (forms) => {
             if(e.response){
                 if(e.response.status === 400) return{
                     success: false,
-                    message: "Please fill out the fields propertly"
+                    message: e.response.data.message
                 }
 
                 if(e.response.status === 409) return{
@@ -35,17 +35,17 @@ const postSignIn = async (forms) => {
         if(e.response){
             if(e.response.status === 400) return{
                 success: false,
-                message: e.response.message
+                message: e.response.data.message
             }
 
             if(e.response.status === 401) return{
                 success: false,
-                message: "invalid email and/or passwords"
+                message: "invalid email and/or password"
             }
 
             if(e.response.status === 404) return{
                 success: false,
-                message: "invalid email and/or passwords"
+                message: "invalid email and/or password"
             }
         }
 

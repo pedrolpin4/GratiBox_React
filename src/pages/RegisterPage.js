@@ -10,6 +10,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
+    const [message, setMessage] = useState('')
 
     const formsSignIn = {
         email,
@@ -26,7 +27,6 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const result = await postSignIn(formsSignIn);
-        console.log(result);
         
         if(result.success){
             setUserData(result.data)
@@ -36,6 +36,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
             navigate("/signatures")
             return;
         }
+        setMessage(result.message)
 
         return;
     }
@@ -44,6 +45,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
         e.preventDefault();
 
         if(password !== repeatPassword){
+            setMessage('Your password and its confirmation are not the same')
             return;
         }
 
@@ -54,6 +56,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
             return;
         }
 
+        setMessage(result.message)
         return;
     }
 
@@ -77,6 +80,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
                             value = {email} onChange = {(e) => setEmail(e.target.value)}/>
                         <input className = "register__form--input  mb-huge" placeholder = "Password [6-15 characters]" type = "password" 
                             value = {password} onChange = {(e) => setPassword(e.target.value)} pattern = ".{6,11}"/>
+                        <p className = "error-message white mb-small">{message}</p>
                     </>
                     :
                     <>
@@ -88,6 +92,7 @@ const RegisterPage = ({isSigningIn, setIsSigningIn}) => {
                             value = {password} onChange = {(e) => setPassword(e.target.value)} pattern = ".{6,11}"/>
                         <input className = "register__form--input mb-big" placeholder = "Repeat your Password" type = "password" 
                             value = {repeatPassword} onChange = {(e) => setRepeatPassword(e.target.value)} pattern = ".{6,11}"/>
+                        <p className = "error-message white mb-small">{message}</p>
                     </>
                 }
                 <button className = "register__form--button mb-small" type = "submit">

@@ -53,7 +53,7 @@ const UserSignature = () => {
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
-                "Agradecer é arte de atrair coisas boas"
+                "Greeting is the art of attracting good stuff"
             </div>
             <div className = "plans-options__container mb-huge">
                 <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>

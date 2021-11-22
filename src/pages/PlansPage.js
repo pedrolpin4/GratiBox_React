@@ -22,7 +22,7 @@ const PlansPage = ({setDefaultPlan}) => {
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </h1>
             <p className = "plans__info mb-medium">
-                Você ainda não assinou um plano, que tal começar agora?
+               Haven't you signed a plan yet? How about starting now?
             </p>
             <Plan content = "weekly" setDefaultPlan = {setDefaultPlan}/>
             <Plan content = "monthly" setDefaultPlan = {setDefaultPlan}/>

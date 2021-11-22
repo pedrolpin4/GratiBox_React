@@ -22,7 +22,7 @@ const HomePage = ({setIsSigningIn}) => {
                 Welcome to <span className = "bold">Gratibox</span>
             </h1>
             <p className = "home__description">
-                Receba em casa um box com chás, produtos organicos, incensos e muito mais...
+                Receive at home a box with teas, organic products, incenses and a lot more...
             </p>
             <img className = "home__image" alt = "GratiBox, be zen" src = "assets/image05.webp"/>
             <div className = "home__ghostbg"></div>
@@ -30,13 +30,13 @@ const HomePage = ({setIsSigningIn}) => {
                 setIsSigningIn(false);
                 navigate("/register");
             }}>
-                Quero começar
+                Wanna Start?
             </div>
             <p className = "home__switcher" onClick = {() => {
                 navigate("/register");
                 setIsSigningIn(true);
             }}>
-                Já sou grato
+                I'm already grateful
             </p>
         </div>
     )

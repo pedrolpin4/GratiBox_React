@@ -42,7 +42,7 @@ const PlansOptions = ({defaultPlan, setDistricts}) => {
         }
 
         if(!deliveryDay){
-            setMessage('You must select your deliveryDay')
+            setMessage('You must select your Delivery Day')
             return;
         }
 
@@ -76,11 +76,11 @@ const PlansOptions = ({defaultPlan, setDistricts}) => {
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
-                "Agradecer é arte de atrair coisas boas"
+                "Greeting is the art of attracting good stuff"
             </div>
             <div className = "plans-options__container mb-huge">
                 <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
-                <p>{message}</p> 
+                <p className = "error-message mb-small">{message}</p> 
                 <Option setOption = {setPlan} options = {plans} option = {plan} content = "plans"/>
                 <Option setOption = {setDeliveryDay} options = {plan === 2 ? deliveryDays.slice(0,3) : deliveryDays.slice(3,6)} 
                     option = {deliveryDay} content = "delivery"/>

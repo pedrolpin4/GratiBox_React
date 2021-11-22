@@ -7,10 +7,12 @@ const verifyDay = (date) => {
         const newDate = `${date.split('-')[0]}-${date.split('-')[1]}-${Number(date.split('-')[2]) === 1 ? '02' : Number(date.split('-')[2]) + 1}`
         return newDate;
     }
+
     if(verifiedDay === 7) {
         const newDate = `${date.split('-')[0]}-${date.split('-')[1]}-${Number(date.split('-')[2]) === 1 ? '03' : Number(date.split('-')[2]) + 2}`
         return newDate;
     }
+    
     return date;
 };
 

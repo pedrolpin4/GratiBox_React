@@ -18,6 +18,17 @@
     margin-bottom: $margin-bottom-medium;
 }
 
+.error-message{
+    color: $color-red;
+    width: calc(100% - 38px);
+    font-size: 16px;
+    text-align: center;
+
+    &.white{
+        color: $color-white;
+    }
+}
+
 .bold{
     font-weight: 700;
 }
