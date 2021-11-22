@@ -5,6 +5,7 @@ import PlanContext from "../context/PlanContext";
 import UserContext from "../context/UserContext";
 import { postSignature } from "../service/signPlan";
 import { IoArrowDown } from "react-icons/io5";
+import Mindfullness from "../animations/svgs/Minfullness";
 
 const DeliveryInfo = ({districts}) => {
     const navigate = useNavigate();
@@ -81,7 +82,7 @@ const DeliveryInfo = ({districts}) => {
                 "Greeting is the art of attracting good vibrations"
             </div>
             <div className = "plans-options__container mb-huge">
-                <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
+                <Mindfullness size = {"250px"}/>
                 <p  className = "error-message mb-small">{message}</p>
                 <input className = "plans-options__input" placeholder = "Full Name" value = {fullName}
                     onChange = {(e) => setFullName(e.target.value)} pattern = ".{2, }"/>
