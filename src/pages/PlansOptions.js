@@ -76,7 +76,7 @@ const PlansOptions = ({defaultPlan, setDistricts}) => {
                 Good to see you, @{JSON.parse(localStorage.getItem("gratiboxLogin"))?.user.name}.
             </div>
             <div className = "plans-options__info mb-small">
-                "Greeting is the art of attracting good stuff"
+                "Greeting is the art of attracting good vibrations"
             </div>
             <div className = "plans-options__container mb-huge">
                 <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
