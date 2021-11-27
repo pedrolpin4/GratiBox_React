@@ -1,7 +1,7 @@
 # GratiBox
 
 <p align="center" >
-<img src="https://user-images.githubusercontent.com/87671165/143669068-7619f62f-b86a-4cbb-812b-fa978043cca4.gif" width="300" height="300"/>
+<img src="https://user-images.githubusercontent.com/87671165/143669068-7619f62f-b86a-4cbb-812b-fa978043cca4.gif" height="500"/>
 </p>
 
 
