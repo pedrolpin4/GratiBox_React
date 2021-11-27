@@ -12,6 +12,8 @@ import RegisterPage from './pages/RegisterPage'
 import DeliveryInfo from './pages/DeliveryInfo';
 import PlanContext from './context/PlanContext';
 import UserSignature from './pages/UserSignature';
+import FuckOff from './animations/svgs/FuckOff';
+import ComingSoon from './animations/svgs/ComingSoon';
   
 const App = () => {
     const [userData, setUserData] = useState({});
@@ -38,6 +40,8 @@ const App = () => {
                         <Route path = "/plans-selection" exact element = {<PlansOptions defaultPlan = {defaultPlan} setDistricts = {setDistricts}/>} />
                         <Route path = "/delivery-info" exact element = {<DeliveryInfo districts = {districts}/>} />
                         <Route path = "/user-signature" exact element = {<UserSignature />} />
+                        <Route path = "/coming-soon" exact element = {<ComingSoon />} />
+                        <Route path = "/hello" exact element = {<FuckOff />} />
                     </Routes>
                 </PlanContext.Provider>
             </Router>

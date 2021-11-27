@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import Option from "../components/Option"
 import PlanContext from "../context/PlanContext";
 import { getPlans } from "../service/signPlan";
+import Mindfullness from "../animations/svgs/Minfullness"
 
 const PlansOptions = ({defaultPlan, setDistricts}) => {
     const navigate = useNavigate();
@@ -79,7 +80,7 @@ const PlansOptions = ({defaultPlan, setDistricts}) => {
                 "Greeting is the art of attracting good vibrations"
             </div>
             <div className = "plans-options__container mb-huge">
-                <img className = "plans-options__image" src = "assets/image03.jpg" alt = "plans options"/>
+               <Mindfullness size = {"250px"}/>
                 <p className = "error-message mb-small">{message}</p> 
                 <Option setOption = {setPlan} options = {plans} option = {plan} content = "plans"/>
                 <Option setOption = {setDeliveryDay} options = {plan === 2 ? deliveryDays.slice(0,3) : deliveryDays.slice(3,6)} 

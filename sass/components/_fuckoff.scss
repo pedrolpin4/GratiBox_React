@@ -1,0 +1,9 @@
+.fuckOff{
+    @include column-justify-center;
+    height: 100vh;
+    background-color: $color-white;
+    h1{
+        font-size: 30px;
+        margin-top: 50px;
+    }
+}
