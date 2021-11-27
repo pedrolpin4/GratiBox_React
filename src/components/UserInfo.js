@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoArrowDown} from "react-icons/io5";
 
 const Option = ({content, options}) => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     return (
         <>
