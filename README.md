@@ -1,7 +1,7 @@
 # GratiBox
 
 <p align="center" >
-<svg src="https://assets6.lottiefiles.com/packages/lf20_akvlytur.json" width="300" height="300"/>
+<img src="https://assets6.lottiefiles.com/packages/lf20_akvlytur.json" width="300" height="300"/>
 </p>
 
 
