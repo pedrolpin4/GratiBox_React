@@ -51,8 +51,8 @@ Aiming to encourage a healthier lifestyle, this app is a startup that delivers a
 
 ## What comes next?
 
-- On the next versions you'll experience a whole new web design you've never seen or heard
-- The rate Deliveries feature will blow your mind with the best feedback plataform on lifestyle signatures
+- On the next versions you'll experience a whole new web design you've never seen or heard about
+- The rate Deliveries feature will blow your mind with the best feedback platform on lifestyle signatures
 
 ## Tecnologies I Used
 
